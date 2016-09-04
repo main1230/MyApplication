@@ -5,10 +5,15 @@ import com.zzl.cn.bean.UserBean;
 
 import java.util.Map;
 
+import okhttp3.RequestBody;
+import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
+import retrofit2.http.QueryMap;
 import rx.Observable;
 
 /**
@@ -25,9 +30,17 @@ public interface UserApiService {
      * @param password   密码
      * @return
      */
-    @FormUrlEncoded
-    @POST("/api/login/")
-    Observable<ResultBean<UserBean>> login(@Field("phone") String phone, @Field("password") String password);
+//    @FormUrlEncoded
+//    @POST("api/login/")
+//    Observable<ResultBean<UserBean>> login(@Field("phone") String phone, @Field("password") String password);
+//
+//    @Headers({"Content-Type: application/json", "Accept: application/json"})
+//    @POST("api/login/")
+//    Observable<ResultBean<UserBean>> login(@Body RequestBody requestBody);
+
+    @POST("{url}")
+    Observable<ResultBean<UserBean>> login(@Path("url") String url, @QueryMap Map<String, Object> map);
+
 
     /**
      * 注册
@@ -35,6 +48,9 @@ public interface UserApiService {
      * @return
      */
     @FormUrlEncoded
-    @POST
+    @POST("api/register/")
     Observable<ResultBean<UserBean>> register(@FieldMap Map<String, String> data);
+
+    @POST("api/register/")
+    Observable<ResultBean<UserBean>> register(@Body RequestBody requestBody);
 }
