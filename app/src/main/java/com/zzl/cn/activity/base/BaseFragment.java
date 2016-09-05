@@ -1,4 +1,4 @@
-package com.zzl.cn.ui.base;
+package com.zzl.cn.activity.base;
 
 import android.app.Fragment;
 import android.os.Bundle;

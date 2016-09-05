@@ -23,6 +23,22 @@ import rx.Observable;
  */
 
 public interface UserApiService {
+    /**
+     * 登录
+     * @param map
+     * @return
+     */
+    @POST(URLs.login)
+    Observable<ResultBean<UserBean>> login(@Body Map<String, Object> map);
+
+    /**
+     * 注册
+     * @param map
+     * @return
+     */
+    @POST(URLs.register)
+    Observable<ResultBean<UserBean>> register(@Body Map<String, Object> map);
+
 
     /**
      * 登陆
@@ -38,8 +54,8 @@ public interface UserApiService {
 //    @POST("api/login/")
 //    Observable<ResultBean<UserBean>> login(@Body RequestBody requestBody);
 
-    @POST("{url}")
-    Observable<ResultBean<UserBean>> login(@Path("url") String url, @QueryMap Map<String, Object> map);
+//    @POST("{url}")
+//    Observable<ResultBean<UserBean>> login(@Path("url") String url, @QueryMap Map<String, Object> map);
 
 
     /**
@@ -47,10 +63,10 @@ public interface UserApiService {
      * @param data
      * @return
      */
-    @FormUrlEncoded
-    @POST("api/register/")
-    Observable<ResultBean<UserBean>> register(@FieldMap Map<String, String> data);
-
-    @POST("api/register/")
-    Observable<ResultBean<UserBean>> register(@Body RequestBody requestBody);
+//    @FormUrlEncoded
+//    @POST("api/register/")
+//    Observable<ResultBean<UserBean>> register(@FieldMap Map<String, String> data);
+//
+//    @POST("api/register/")
+//    Observable<ResultBean<UserBean>> register(@Body RequestBody requestBody);
 }

@@ -24,9 +24,14 @@ public class AppManager {
             mInstance = new AppManager();
         }
         if (activityStack == null){
-            activityStack = new Stack<Activity>();
+            activityStack = new Stack<>();
         }
         return mInstance;
+    }
+
+    public static void removeActivity(Activity activity) {
+        if (activityStack != null && activityStack.contains(activity))
+            activityStack.remove(activity);
     }
 
     /**

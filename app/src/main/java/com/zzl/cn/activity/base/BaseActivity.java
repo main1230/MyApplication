@@ -1,13 +1,11 @@
-package com.zzl.cn.ui.base;
+package com.zzl.cn.activity.base;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.widget.Toast;
-
 import com.zzl.cn.R;
 import com.zzl.cn.application.AppManager;
 import com.zzl.cn.exception.APIException;
@@ -101,6 +99,7 @@ public abstract class BaseActivity extends FragmentActivity {
 
     @Override
     protected void onDestroy() {
+        AppManager.removeActivity(this);
         //一旦调用了 CompositeSubscription.unsubscribe()，这个CompositeSubscription对象就不可用了,
         // 如果还想使用CompositeSubscription，就必须在创建一个新的对象了。
         mCompositeSubscription.unsubscribe();
@@ -113,6 +112,7 @@ public abstract class BaseActivity extends FragmentActivity {
      * @param e
      */
     public void dealException(Throwable e) {
+        hideLoadingDialog();
         if (!NetUtil.isNetworkConnected()) {
             showToastMsg(getString(R.string.net_not_open) + e.getMessage());
         } else {

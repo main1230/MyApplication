@@ -1,4 +1,4 @@
-package com.zzl.cn.ui;
+package com.zzl.cn.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
