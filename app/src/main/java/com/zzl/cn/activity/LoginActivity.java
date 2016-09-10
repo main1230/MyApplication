@@ -1,24 +1,19 @@
 package com.zzl.cn.activity;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import com.zzl.cn.R;
+import com.zzl.cn.activity.base.BaseActivity;
 import com.zzl.cn.activity.wechat.WeChatActivity;
+import com.zzl.cn.api.RetrofitManager;
 import com.zzl.cn.api.RxHelper;
 import com.zzl.cn.api.UserApiService;
 import com.zzl.cn.bean.UserBean;
-import com.zzl.cn.api.RetrofitManager;
-import com.zzl.cn.activity.base.BaseActivity;
-
 import java.util.HashMap;
 import java.util.Map;
-
 import butterknife.BindView;
 import butterknife.OnClick;
 import rx.Subscription;
@@ -41,13 +36,26 @@ public class LoginActivity extends BaseActivity {
     Button registerBtn;
     @BindView(R.id.result_tv)
     TextView resultTv;
+    @BindView(R.id.main_btn)
+    Button mainBtn;
+    @BindView(R.id.wechat_btn)
+    Button wechatBtn;
 
     private UserApiService userApiService;
 
+    @OnClick(R.id.main_btn)
+    void jumpMain() {
+        jumpToPage(MainActivity.class);
+    }
+
+    @OnClick(R.id.wechat_btn)
+    void jumpWechat() {
+        jumpToPage(WeChatActivity.class);
+    }
+
     @OnClick(R.id.register_btn)
     void register() {
-        jumpToPage(WeChatActivity.class);
-        //jumpToPage(RegisterActivity.class);
+        jumpToPage(RegisterActivity.class);
     }
 
     @OnClick(R.id.login_btn)
@@ -76,7 +84,7 @@ public class LoginActivity extends BaseActivity {
                                @Override
                                public void call(UserBean userBean) {
                                    hideLoadingDialog();
-                                   showToastMsg("---"+userBean.getName());
+                                   showToastMsg("---" + userBean.getName());
                                }
                            },
                         new Action1<Throwable>() {

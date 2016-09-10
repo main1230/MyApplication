@@ -16,6 +16,7 @@ import okhttp3.ResponseBody;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import rx.Subscriber;
+import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 import rx.functions.Func1;
@@ -49,8 +50,15 @@ public class DownloadAPI {
                 .build();
     }
 
-    public void downloadFile(@NonNull String url, final File file, final Subscriber subscriber) {
-        retrofit.create(DownloadFileApi.class)
+    /**
+     * 文件下载
+     * @param url
+     * @param file
+     * @param subscriber
+     * @return
+     */
+    public Subscription downloadFile(@NonNull String url, final File file, final Subscriber subscriber) {
+        return retrofit.create(DownloadFileApi.class)
                 .downloadFile(url)
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
@@ -75,5 +83,11 @@ public class DownloadAPI {
                 })
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(subscriber);
+    }
+
+    public Subscription uploadFile(@NonNull String url, final File file, final Subscriber subscriber) {
+
+        return retrofit.create(DownloadAPI.class)
+                .uploadFile(url, file, subscriber);
     }
 }

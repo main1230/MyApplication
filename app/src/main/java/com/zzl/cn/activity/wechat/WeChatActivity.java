@@ -9,6 +9,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import com.zzl.cn.R;
 import com.zzl.cn.activity.base.BaseActivity;
+import com.zzl.cn.api.DownloadAPI;
+import com.zzl.cn.api.download.DownloadProgressListener;
+import com.zzl.cn.utils.LogUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -94,4 +98,15 @@ public class WeChatActivity extends BaseActivity {
             mAudioRecorderButton.clear();
         }
     }
+
+    private void uploadFile() {
+
+    }
+
+    DownloadProgressListener downloadProgressListener = new DownloadProgressListener() {
+        @Override
+        public void update(final long bytesRead, final long contentLength, boolean done) {
+            LogUtils.showErrorLog(getClass(), (bytesRead * 100 / contentLength) + "%");
+        }
+    };
 }
