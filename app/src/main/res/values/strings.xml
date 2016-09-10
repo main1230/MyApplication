@@ -3,4 +3,8 @@
 
     <string name="net_not_open">网络未连接，请检查网络~</string>
     <string name="net_connect_faile">请求失败，请稍后再试~</string>
+
+    <string name="str_recorder_normal">按住说话</string>
+    <string name="str_recorder_recording">松开结束</string>
+    <string name="str_recorder_want_cancel">松开手指，取消发送</string>
 </resources>

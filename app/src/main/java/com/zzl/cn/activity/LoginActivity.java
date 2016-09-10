@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.zzl.cn.R;
+import com.zzl.cn.activity.wechat.WeChatActivity;
 import com.zzl.cn.api.RxHelper;
 import com.zzl.cn.api.UserApiService;
 import com.zzl.cn.bean.UserBean;
@@ -45,7 +46,8 @@ public class LoginActivity extends BaseActivity {
 
     @OnClick(R.id.register_btn)
     void register() {
-        jumpToPage(RegisterActivity.class);
+        jumpToPage(WeChatActivity.class);
+        //jumpToPage(RegisterActivity.class);
     }
 
     @OnClick(R.id.login_btn)

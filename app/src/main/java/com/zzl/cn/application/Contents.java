@@ -21,4 +21,9 @@ public class Contents {
      * 文件缓存目录
      */
     public static String TEMP_FILE_PATH;
+
+    /**
+     * 录音缓存目录
+     */
+    public static String TEMP_AUDIO_PATH;
 }

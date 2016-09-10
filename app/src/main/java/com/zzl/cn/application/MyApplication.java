@@ -39,10 +39,11 @@ public class MyApplication extends Application {
         }
         Contents.TEMP_PIC_PATH = Contents.ROOT_PATH + "temp_pic/";
         Contents.TEMP_FILE_PATH = Contents.ROOT_PATH + "temp_file/";
+        Contents.TEMP_AUDIO_PATH = Contents.ROOT_PATH + "temp_audio/";
 
         FileUtils.createDir(Contents.ROOT_PATH);
         FileUtils.createDir(Contents.TEMP_PIC_PATH);
         FileUtils.createDir(Contents.TEMP_FILE_PATH);
-
+        FileUtils.createDir(Contents.TEMP_AUDIO_PATH);
     }
 }
