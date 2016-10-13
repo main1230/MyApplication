@@ -14,6 +14,7 @@ import com.zzl.cn.widget.DialogLoading;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import rx.functions.Action1;
 import rx.subscriptions.CompositeSubscription;
 
 /**
@@ -184,4 +185,14 @@ public abstract class BaseActivity extends FragmentActivity {
     protected void jumpToPage(Class<?> cls) {
         jumpToPage(cls, null, false, 0, false);
     }
+
+    protected void failHandle(Throwable throwable) {
+
+    }
+    protected Action1<Throwable> errorAction1 = new Action1<Throwable>(){
+        @Override
+        public void call(Throwable throwable) {
+            failHandle(throwable);
+        }
+    };
 }
