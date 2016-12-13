@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:background="@color/colorPrimary">
+
+    <TextView
+        android:id="@+id/back_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="返回"
+        android:textColor="@android:color/white"
+        android:layout_marginLeft="10dp"
+        />
+
+    <TextView
+        android:id="@+id/title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:text="标题"
+        android:textColor="@android:color/white"
+        android:layout_marginLeft="10dp"
+        />
+
+</FrameLayout>

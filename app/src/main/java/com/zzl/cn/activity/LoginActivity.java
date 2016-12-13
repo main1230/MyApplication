@@ -24,7 +24,6 @@ import rx.functions.Action1;
  * desc: 登录
  * date: 16-9-1.
  */
-
 public class LoginActivity extends BaseActivity {
     @BindView(R.id.phone_et)
     EditText phoneEt;
